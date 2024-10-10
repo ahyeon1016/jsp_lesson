@@ -33,6 +33,10 @@
 	<p><a href="4_5">예제 4_5</a></p>
 	<p><a href="4_6">예제 4_6</a></p>
 	<p><a href="4_7">예제 4_7</a></p>
+	<p><a href="4_9">예제 4_9</a></p>
+	<p><a href="4_10">예제 4_10</a></p>	
+	<p><a href="4_11">예제 4_11</a></p>	
+	
 	
 	<form action="4_0" method="get">
 		<input type="text" name="id" /><br>
