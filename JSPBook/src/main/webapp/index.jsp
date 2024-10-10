@@ -7,6 +7,8 @@
 <title>Scripting Tag</title>
 </head>
 <body>
+	<h1>예제 실습</h1>
+	<hr>
 	<p><a href="2_1">예제 2_1</a></p>
 	<p><a href="2_2">예제 2_2</a></p>
 	<p><a href="2_3">예제 2_3</a></p>
@@ -37,6 +39,9 @@
 	<p><a href="4_10">예제 4_10</a></p>	
 	<p><a href="4_11">예제 4_11</a></p>	
 	
+	<br>
+	<p><a href="BookMarket">북 마켓</a></p>
+	<br>
 	
 	<form action="4_0" method="get">
 		<input type="text" name="id" /><br>
