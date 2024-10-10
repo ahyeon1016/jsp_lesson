@@ -33,5 +33,16 @@
 	<p><a href="4_5">예제 4_5</a></p>
 	<p><a href="4_6">예제 4_6</a></p>
 	<p><a href="4_7">예제 4_7</a></p>
+	
+	<form action="4_0" method="get">
+		<input type="text" name="id" /><br>
+		<input type="text" name="name"/><br>
+		<input type="submit" value="전송"></input>
+	</form>
+	<% 
+		String id = "AGH";
+		String name ="HYEON";
+	%>
+	<p><a href="4_0?id=<%=id%>&name=<%=name%>">예제 4_0</a></p>
 </body>
 </html>

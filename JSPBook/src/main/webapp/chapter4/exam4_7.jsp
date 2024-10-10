@@ -8,7 +8,9 @@
 </head>
 <body>
 	<jsp:useBean id ="person" class ="chapter04.Person" scope ="request"/>
+	
 	<p> 아이디 : <%= person.getId() %>
 	<p> 이름 : <%= person.getName() %>
+	<%person.setId(1000); %>
 </body>
 </html>
