@@ -53,5 +53,11 @@
 		String name ="HYEON";
 	%>
 	<p><a href="4_0?id=<%=id%>&name=<%=name%>">예제 4_0</a></p>
+	<hr>
+	<form action="5_1">
+		<p> 아 이 디 : <input type="text" name="id" placeholder="아이디를 입력하세요.">
+		<p> 비밀번호 : <input type="text" name="passwd" placeholder="비밀번호를 입력하세요.">
+		<p> <input type="submit" value="전송">
+	</form>
 </body>
 </html>
