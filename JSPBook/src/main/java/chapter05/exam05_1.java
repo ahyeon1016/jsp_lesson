@@ -14,7 +14,7 @@ public class exam05_1 extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
+
 		String id = req.getParameter("id");
 		System.out.println("전달 받은 id"+id);
 		
