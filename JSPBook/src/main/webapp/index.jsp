@@ -59,5 +59,8 @@
 		<p> 비밀번호 : <input type="text" name="passwd" placeholder="비밀번호를 입력하세요.">
 		<p> <input type="submit" value="전송">
 	</form>
+	<hr>
+	<p><a href="5_2">예제 5_2</a></p>	
+	
 </body>
 </html>
