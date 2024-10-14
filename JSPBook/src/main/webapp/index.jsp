@@ -62,12 +62,8 @@
 	<hr>
 	<p><a href="5_2">예제 5_2</a></p>	
 	<p><a href="5_3">예제 5_3</a></p>	
-	
-	<form action="5_4" method="post">
-		<p> 아이디 : <input type="text" name="id">
-		<p> 비밀번호 : <input type="text" name="passwd">
-		<p> <input type="submit" value="전송">
-	</form>
+	<p><a href="5_4">예제 5_4</a></p>	
+
 	
 </body>
 </html>

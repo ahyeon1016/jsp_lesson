@@ -15,7 +15,8 @@ public class exam05_4 extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		RequestDispatcher ds = req.getRequestDispatcher("chapter5/exam5_4.jsp");
+		ds.forward(req, resp);
 	}
 
 	@Override
@@ -24,9 +25,9 @@ public class exam05_4 extends HttpServlet {
 		
 		req.setCharacterEncoding("utf-8");
 		String userid = req.getParameter("id");
-		String passward = req.getParameter("passwd");
+		String password = req.getParameter("passwd");
 		
-		if(userid.equals("관리자") && passward.equals("1234")){
+		if(userid.equals("관리자") && password.equals("1234")){
 			resp.sendRedirect("chapter5/exam5_4_success.jsp");
 		} else {
 			resp.sendRedirect("chapter5/exam5_4_failed.jsp");

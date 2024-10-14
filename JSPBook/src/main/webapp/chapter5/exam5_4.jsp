@@ -7,7 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p> 로그인에 실패했습니다.
-	<p><a href="../5_4">로그인 가기</a></p>
+	<form action="5_4" method="post">
+		<p> 아이디 : <input type="text" name="id">
+		<p> 비밀번호 : <input type="text" name="passwd">
+		<p> <input type="submit" value="전송">
+	</form>
 </body>
 </html>
