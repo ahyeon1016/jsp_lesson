@@ -60,10 +60,10 @@
 		<p> <input type="submit" value="전송">
 	</form>
 	<hr>
-	<p><a href="5_2">예제 5_2</a></p>	
-	<p><a href="5_3">예제 5_3</a></p>	
-	<p><a href="5_4">예제 5_4</a></p>	
-
+	<a href="5_2">예제 5_2</a>
+	<a href="5_3">예제 5_3</a>
+	<a href="5_4">예제 5_4</a>
+	<a href="5_5">예제 5-5</a>
 	
 </body>
 </html>
