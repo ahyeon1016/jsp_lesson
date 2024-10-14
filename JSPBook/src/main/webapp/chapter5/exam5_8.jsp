@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p>이 페이지는 5초마다 새로고침 됩니다.
-	<%
-		response.setIntHeader("Refresh", 5);
-	%>
-	<%=new java.util.Date()+"asd"%>
+	<form action="5_8" method="post">
+		<p> 아이디 : <input type="text" name="id">
+		<p> 비밀번호 : <input type="text" name="pwd">
+		<p> <input type="submit" value="전송">
+	</form>
 </body>
 </html>

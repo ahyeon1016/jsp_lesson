@@ -7,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p>이 페이지는 5초마다 새로고침 됩니다.
+	<%="오늘의 날짜 및 시각"%><br>
 	<%
-		response.setIntHeader("Refresh", 5);
+		out.println(java.util.Calendar.getInstance().getTime());
 	%>
-	<%=new java.util.Date()+"asd"%>
 </body>
 </html>
