@@ -33,6 +33,15 @@ public class exam06_2 extends HttpServlet {
 		String sex = req.getParameter("sex");
 		String[] hobby = {req.getParameter("hobby1"), req.getParameter("hobby2"), req.getParameter("hobby3")}; 
 		
+		String a;
+		for(int i=0; i<hobby.length; i++) {
+			a = hobby[i];
+			if(!(a!=null)) {
+				a="";
+				hobby[i]=a;
+			}
+		}
+		
 		System.out.println(id);
 		System.out.println(pwd);
 		System.out.println(name);
