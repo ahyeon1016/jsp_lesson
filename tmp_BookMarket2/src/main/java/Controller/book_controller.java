@@ -20,7 +20,7 @@ public class book_controller extends HttpServlet{
 		System.out.println("/book µµÂø");
 		
 		//¸ðµ¨
-	    BookRepository br = BookRepository.getRepository();
+	    BookRepository br = BookRepository.getInstance();
 	    ArrayList<Book> arr = br.getAllBooks();
 	    
 		//ÀÌµ¿

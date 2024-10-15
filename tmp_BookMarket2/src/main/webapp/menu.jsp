@@ -8,5 +8,6 @@
         <br>
         <!-- /를 붙이면 나는 절대경로로 경로를 표시하겠다는 표시임 -->
         <a href="products" class="fs-4 text-decoration-none">All product</a>
+        <a href="addBook" class="fs-4 text-decoration-none">Add Book</a>
       </a>    
     </header>    
