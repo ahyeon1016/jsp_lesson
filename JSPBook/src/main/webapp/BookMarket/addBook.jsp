@@ -18,7 +18,7 @@
 		</div>
 		
 		<div class="row align-item-md-stretch">
-			<form name="newBook" action="" method="post">
+			<form action="addBook" method="post">
 				<div class="mb-3 row">
 					<label class="col-sm-2">도서코드</label>
 					<div class="col-sm-3">

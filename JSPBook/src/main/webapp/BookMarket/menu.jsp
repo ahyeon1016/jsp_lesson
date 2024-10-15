@@ -5,5 +5,7 @@
   			<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
 		</svg>   
         <span class="fs-4">Home</span>
-      </a>    
+        <span><a href="addBook">addBook<span>   
+      </a> 
+      
     </header>    

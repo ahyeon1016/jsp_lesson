@@ -2,6 +2,8 @@ package BookMarket;
 
 import java.io.IOException;
 
+import dao.BookRepository;
+import dto.Book;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -20,7 +22,7 @@ public class BookMarket extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		System.out.println("post도착");
 	}
 	
 }

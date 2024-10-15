@@ -10,7 +10,7 @@
 <title>도서 목록</title>
 </head>
 <body>
-	<div class="container py4">
+	<div class="container py-4">
 		<%@include file="menu.jsp"%>
 		
 		<div class="p-5 mb-4 bg-body-tertiary rounded-3">

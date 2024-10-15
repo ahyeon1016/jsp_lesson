@@ -18,7 +18,7 @@
 			<option value="017">017</option> 
 			<option value="019">019</option> 
 			- <input type="text" name="phone2" maxlength="4" size="4">
-			- <input type="text" name="phone2" maxlength="4" size="4">
+			- <input type="text" name="phone3" maxlength="4" size="4">
 		<p> 성별 : <input type="radio" name="sex" value="남성" checked>
 			<input type="radio" name="sex" value="여성">
 		<p> 취미 : 독서<input type="checkbox" name="hobby" value="reading" checked>
