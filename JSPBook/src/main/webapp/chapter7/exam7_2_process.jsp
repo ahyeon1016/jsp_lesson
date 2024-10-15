@@ -39,6 +39,6 @@
     파일 : <%= file3%> <br> 
     <img src="img/<%=file3%>">
     <hr>
-    경로 <%=save %>
+    경로 : <%=save %>
 </body>
 </html>
