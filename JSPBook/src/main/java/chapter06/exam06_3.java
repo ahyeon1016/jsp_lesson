@@ -41,7 +41,7 @@ public class exam06_3 extends HttpServlet {
 		System.out.println(hobby);
 		System.out.println(comment);
 		
-		ArrayList arr = new ArrayList();
+		ArrayList<String> arr = new ArrayList<String>();
 		arr.add(id);
 		arr.add(pwd);
 		arr.add(name);
