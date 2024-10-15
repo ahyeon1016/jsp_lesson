@@ -2,6 +2,9 @@ package Controller;
 
 import java.io.IOException;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import dao.BookRepository;
 import dto.Book;
 import jakarta.servlet.RequestDispatcher;
@@ -26,16 +29,22 @@ public class addBook extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("addBook post 도착");
 		
-		String bookId = req.getParameter("bookId");
-		String name = req.getParameter("name");
-		String unitPrice = req.getParameter("unitPrice");
-		String author = req.getParameter("author");
-		String publisher = req.getParameter("publisher");
-		String releaseDate = req.getParameter("releaseDate");
-		String description = req.getParameter("description");
-		String category = req.getParameter("category");
-		String unitInStock = req.getParameter("unitInStock");
-		String condition = req.getParameter("condition");
+		String save = req.getServletContext().getRealPath("resources/img");
+		MultipartRequest multi = new MultipartRequest(req, save, 5*1024*1024, "utf-8", new DefaultFileRenamePolicy());
+		
+		String bookId = multi.getParameter("bookId");
+		String name = multi.getParameter("name");
+		String unitPrice = multi.getParameter("unitPrice");
+		String author = multi.getParameter("author");
+		String publisher = multi.getParameter("publisher");
+		String releaseDate = multi.getParameter("releaseDate");
+		String description = multi.getParameter("description");
+		String category = multi.getParameter("category");
+		String unitInStock = multi.getParameter("unitInStock");
+		String condition = multi.getParameter("condition");
+		String file = multi.getFilesystemName("bookFile");
+		
+		System.out.println(file);
 		
 		Integer price;
 		
@@ -67,6 +76,7 @@ public class addBook extends HttpServlet {
 		newBook.setCategory(category);
 		newBook.setUnitsInStock(stock);
 		newBook.setCondition(condition);
+		newBook.setFilename(file);
 		
 		dao.addBook(newBook);
 		

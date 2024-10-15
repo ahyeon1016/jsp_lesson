@@ -3,6 +3,7 @@
 <html>
 <head>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="resources/css/bootstrap.min.css">
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 </head>
@@ -18,7 +19,7 @@
 		</div>
 		
 		<div class="row align-item-md-stretch">
-			<form action="addBook" method="post">
+			<form action="addBook" method="post" enctype="multipart/form-data" class="form-horizontal">
 				<div class="mb-3 row">
 					<label class="col-sm-2">도서코드</label>
 					<div class="col-sm-3">
@@ -80,6 +81,12 @@
 						<input type="radio" name="condition" value="New"> 신규도서
 						<input type="radio" name="condition" value="Old"> 중고도서
 						<input type="radio" name="condition" value="Ebook"> E-Book
+					</div>
+				</div>
+				<div class="mb-3 row">
+					<label class="col-sm-2">이미지 등록</label>
+					<div class="col-sm-3">
+						<input type="file" name="bookFile" class="form-control">
 					</div>
 				</div>
 				<div class="mb-3 row">
