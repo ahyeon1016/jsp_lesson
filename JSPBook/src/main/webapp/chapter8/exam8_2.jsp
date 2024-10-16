@@ -23,7 +23,7 @@
 			var pwd = document.querySelector("#pwd").value;
 			console.log(id+" "+pwd);
 			
-			var form = document.loginForm;
+			var form = document.loginForm; 
 			if(id==""){
 				alert("아이디를 입력해 주세요.");
 				form.id.focus();
