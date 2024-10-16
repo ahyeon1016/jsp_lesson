@@ -21,7 +21,7 @@ function add(){
 	if( !regExpBookId.test(bookId) ){
 		alert("[도서코드]\nISBN과 숫자를 조합하여 5~12자 까지 입력하세요. \n첫 글자는 반드시 ISBN로 시작하세요!");
 		addBook.bookId.select();
-		return;
+		return false;
 	}
 	console.log("bookId 통과");
 	
@@ -29,7 +29,7 @@ function add(){
 	if(name.length<4||name.length>50){
 		alert("[도서명]\n최소 4자에서 최대 50자까지 입력하세요.")
 		addBook.name.select();
-		return;
+		return false;
 	}
 	console.log("name 통과");
 	
@@ -37,30 +37,30 @@ function add(){
 	if(unitPrice<0){
 		alert("[가격]\n음수를 입력할 수 없습니다.");
 		addBook.unitPrice.focus();
-		return;
+		return false;
 	}
 	
 	if(unitPrice.length==0 || isNaN(unitPrice)){
 		alert("[가격]\n숫자만 입력하세요.");
 		addBook.unitPrice.focus();
-		return;
+		return false;
 	}
 	console.log("unitPrice 통과");
-	
-	//재고 수 체크
-	if(isNaN(unitInStock)){
-		alert("[재고 수]\n숫자만 입력하세요.");
-		addBook.unitInStock.focus();
-		return;
-	}
-	console.log("unitInStock 통과");
 	
 	//상세정보 체크
 	if(description.length<100){
 		alert("[상세설명]\n최소 100자 이상 입력하세요.");
 		addBook.description.focus();
-		return;
+		return false;
 	}
 	
+	//재고 수 체크
+	if(unitInStock.length==0||isNaN(unitInStock)){
+		alert("[재고 수]\n숫자만 입력하세요.");
+		addBook.unitInStock.focus();
+		return false;
+	}
+	console.log("unitInStock 통과");
+	alert("책을 등록합니다");
 	addBook.submit();
 }
