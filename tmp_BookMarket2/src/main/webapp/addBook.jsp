@@ -19,66 +19,66 @@
 		</div>
 		
 		<div class="row align-item-md-stretch">
-			<form action="addBook" method="post" enctype="multipart/form-data" class="form-horizontal">
+			<form action="addBook" method="post" enctype="multipart/form-data" class="form-horizontal" name="addBook">
 				<div class="mb-3 row">
 					<label class="col-sm-2">도서코드</label>
 					<div class="col-sm-3">
-						<input type="text" name="bookId" class="form-control">
+						<input type="text" name="bookId" class="form-control" id="bookId">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2">도서명</label>
 					<div class="col-sm-3">
-						<input type="text" name="name" class="form-control">
+						<input type="text" name="name" class="form-control" id="name">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2">가격</label>
 					<div class="col-sm-3">
-						<input type="text" name="unitPrice" class="form-control">
+						<input type="text" name="unitPrice" class="form-control" id="unitPrice">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2">저자</label>
 					<div class="col-sm-3">
-						<input type="text" name="author" class="form-control">
+						<input type="text" name="author" class="form-control" id="author">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2">출판사</label>
 					<div class="col-sm-3">
-						<input type="text" name="publisher" class="form-control">
+						<input type="text" name="publisher" class="form-control" id="publisher">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2">출판일</label>
 					<div class="col-sm-3">
-						<input type="text" name="releaseDate" class="form-control">
+						<input type="text" name="releaseDate" class="form-control" id="releaseDate">
 					</div>
 				</div>
 				
 				<div class="mb-3 row">
 					<label class="col-sm-2">상세정보</label>
 					<div class="col-sm-5">
-						<textarea name="description" rows="2" cols="50" class="form-control" placeholder="100자 이상 적어주세요"></textarea>
+						<textarea name="description" rows="2" cols="50" class="form-control" placeholder="100자 이상 적어주세요" id="description"></textarea>
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2">분류</label>
 					<div class="col-sm-3">
-						<input type="text" name="category" class="form-control">
+						<input type="text" name="category" class="form-control" id="category">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2">재고수</label>
 					<div class="col-sm-3">
-						<input type="text" name="unitInStock" class="form-control">
+						<input type="text" name="unitInStock" class="form-control" id="unitInStock">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2">상태</label>
 					<div class="col-sm-5">
-						<input type="radio" name="condition" value="New"> 신규도서
+						<input type="radio" name="condition" value="New" checked> 신규도서
 						<input type="radio" name="condition" value="Old"> 중고도서
 						<input type="radio" name="condition" value="Ebook"> E-Book
 					</div>
@@ -91,12 +91,12 @@
 				</div>
 				<div class="mb-3 row">
 					<div class="col-sm-offset-2 col-sm-10">
-						<input type="submit" class="btn btn-primary" value="등록">
+						<input type="button" class="btn btn-primary" value="등록" id="btn">
 					</div>
 				</div>
 			</form>
 		</div>
-		
+		<script type="text/javascript" src="resources/js/validation.js"></script>
 		<%@include file = "footer.jsp" %>
 	</div>
 </body>
