@@ -15,7 +15,7 @@
   	<!-- 검사대상 : 어떤 URL을 검사할 것인지 -->
   	<web-resource-collection>
   		<web-resource-name>JSPBook</web-resource-name>
-  		<url-pattern>/10_2</url-pattern>
+  		<url-pattern>/10_3</url-pattern>
   		<http-method>GET</http-method>
   	</web-resource-collection>
   	<!-- 어느 그룹에게 권한을 줄 것인지 -->
@@ -29,8 +29,8 @@
   <login-config>
   	<auth-method>FORM</auth-method>
   	<form-login-config>
-  		<form-login-page>/chapter10/exam10_2.jsp</form-login-page>
-  		<form-error-page>/chapter10/exam10_2_failed.jsp</form-error-page>
+  		<form-login-page>/chapter10/exam10_3.jsp</form-login-page>
+  		<form-error-page>/chapter10/exam10_3_failed.jsp</form-error-page>
   	</form-login-config>
   </login-config>
   
