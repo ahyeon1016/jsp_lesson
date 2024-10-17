@@ -36,7 +36,7 @@
 							<input type="text" class="form-control" name="j_username">
 							<label for="floatingInput">ID</label>
 						</div>
-						<div>
+						<div class="form-floating mb-3 row">
 							<input type="password" class="form-control" name="j_password">
 							<label for="floatingInput">Password</label>
 						</div>

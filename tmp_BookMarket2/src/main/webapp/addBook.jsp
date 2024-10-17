@@ -24,6 +24,7 @@
 		<div class="row align-item-md-stretch">
 			<div class="text-end">
 				<a href="?language=ko">Korean</a>|<a href="?language=en">English</a>
+				<a href="logout.jsp" class="btn btn-sm btn-success pull right">logout</a>
 			</div>
 			<form action="addBook" method="post" enctype="multipart/form-data" class="form-horizontal" name="addBook">
 				<div class="mb-3 row">
