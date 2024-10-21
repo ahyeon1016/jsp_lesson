@@ -34,4 +34,19 @@
   	</form-login-config>
   </login-config>
   
+  <!-- 예외 처리 -->
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/chapter11/500.jsp</location>
+  </error-page>
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/chapter11/404.jsp</location>
+  </error-page>
+  
+  <error-page>
+  	<exception-type>Exception</exception-type>
+  	<location>/chapter11/exception.jsp</location>
+  </error-page>
 </web-app>
