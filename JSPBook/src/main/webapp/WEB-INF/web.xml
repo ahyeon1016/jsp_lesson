@@ -49,4 +49,14 @@
   	<exception-type>Exception</exception-type>
   	<location>/chapter11/exception.jsp</location>
   </error-page>
+  
+  <!-- 필터 -->
+  <filter>
+  	<filter-name>Filter01</filter-name>
+  	<filter-class>chapter12.exam12_1_filter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>Filter01</filter-name>
+  	<url-pattern>/12_1_process</url-pattern>
+  </filter-mapping>
 </web-app>
