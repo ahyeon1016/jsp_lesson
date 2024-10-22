@@ -52,8 +52,8 @@ public class exam12_2_filter implements Filter {
 		writer.println(message+"<br>");
 		writer.println("아이디 : "+id_f+"<br>	");
 		writer.println("비밀번호: "+pwd_f);
-
-		//chain.doFilter(request, response);
+		
+		chain.doFilter(request, response);
 	}
 
 
