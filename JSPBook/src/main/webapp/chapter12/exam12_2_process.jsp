@@ -7,10 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>필터</h1>
 	<%
-		String name =(String)request.getAttribute("name3");
+		String id = (String)request.getAttribute("id01");
+		String pwd = (String)request.getAttribute("pwd01");
 	%>
-	<%=name %>
+	<p>아이디 : <%=id %>
+	<p>비밀번호 : <%=pwd %>
 </body>
 </html>

@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>필터</h1>
-	<%
-		String name =(String)request.getAttribute("name3");
-	%>
-	<%=name %>
+	<form action="12_2_process" method="get">
+		<p> 이름 : <input type="text" name="id">
+		<p> 비밀번호 : <input type="text" name="pwd">
+		<p> <input type="submit" value="전송">
+	</form>
 </body>
 </html>

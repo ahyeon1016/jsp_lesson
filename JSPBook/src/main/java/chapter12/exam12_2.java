@@ -9,24 +9,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/12_1_process")
-public class exam12_1_process extends HttpServlet{
+@WebServlet("/12_2")
+public class exam12_2 extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("post 도착");
-		
-		String name = req.getParameter("name");
-		System.out.println("이름 : "+name);
-		
-		req.setAttribute("name3", name);
-		RequestDispatcher ds = req.getRequestDispatcher("chapter12/exam12_1_process.jsp");
+		System.out.println("get 도착");
+		RequestDispatcher ds = req.getRequestDispatcher("chapter12/exam12_2.jsp");
 		ds.forward(req, resp);
 	}
-
+	
 }
