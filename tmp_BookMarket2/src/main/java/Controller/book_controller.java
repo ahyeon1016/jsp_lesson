@@ -27,11 +27,5 @@ public class book_controller extends HttpServlet{
 	    req.setAttribute("arry", arr);
 		RequestDispatcher ds = req.getRequestDispatcher("book.jsp");
 		ds.forward(req, resp);
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-	}
-	
+	}	
 }

@@ -36,6 +36,27 @@
   	<location>/exceptionNoPage.jsp</location>
   </error-page>
   
+  <!-- 로그 필터 -->
+  <filter>
+  	<filter-name>LogFilter</filter-name>
+  	<filter-class>filter.LogFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LogFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
   
-  
+  <!-- 로그 기록 필터 -->
+  <filter>
+  	<filter-name>LogFileFilter</filter-name>
+  	<filter-class>filter.LogFileFilter</filter-class>
+  	<init-param>
+  		<param-name>filename</param-name>
+  		<param-value>c:\\logs\\bookLog.log</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LogFileFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>

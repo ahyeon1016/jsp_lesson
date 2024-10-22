@@ -33,10 +33,4 @@ public class product_controller extends HttpServlet{
 		ds.forward(req, resp);
 		
 	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-	}
-
 }
