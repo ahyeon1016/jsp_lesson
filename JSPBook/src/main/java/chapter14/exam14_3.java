@@ -9,20 +9,18 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/14_2")
-public class exam14_2 extends HttpServlet{
+@WebServlet("/14_3")
+public class exam14_3 extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("겟");
-		
-		RequestDispatcher ds = req.getRequestDispatcher("chapter14/exam14_2.jsp");
+		RequestDispatcher ds = req.getRequestDispatcher("chapter14/exam14_3.jsp");
 		ds.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("포스트");
+
 	}
 
 }
