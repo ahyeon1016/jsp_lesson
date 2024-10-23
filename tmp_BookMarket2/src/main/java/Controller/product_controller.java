@@ -11,6 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/products")
 public class product_controller extends HttpServlet{
@@ -21,7 +22,7 @@ public class product_controller extends HttpServlet{
 		System.out.println("/product ¸ÅÇÎµÊ");
 		
 		//ÀüÃ³¸®
-		
+
 		
 		//¸ðµ¨
 		ArrayList<Book> arr = BookRepository.getAllBooks();

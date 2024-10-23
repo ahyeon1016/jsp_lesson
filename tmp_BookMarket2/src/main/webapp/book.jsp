@@ -44,14 +44,34 @@
 				<p> <b>분류</b> <%=book.getCategory() %>
 				<p> <b>재고수</b> <%=book.getUnitsInStock() %>
 				<h4><%=book.getUnitPrice() %></h4>
-				<p><a href="#" class="btn btn-info"> 도서주문 &raquo;</a>
-				<a href="products" class="btn btn-secondary">도서 목록 &raquo;</a>
+				
+				<p> <form name="addForm" action="addCart.jsp?id=<%=book.getBookId()%>" method="post" id="addForm">
+					<a href="#" class="btn btn-info" id="addToCart"> 도서주문 &raquo;</a>
+					<a href="cart.jsp" class="btn btn-warning">장바구니 &raquo;</a>
+					<a href="products" class="btn btn-secondary">도서목록 &raquo;</a>
+					</form>
 			</div>
 		</div>
 		<%
 			}
 		%>
 		<%@ include file = "footer.jsp" %>
+
 	</div>
+	<script type="text/javascript">
+		var addForm = document.querySelector("#addForm");
+		var add = document.querySelector("#addToCart");
+		add.addEventListener("click", addToCart);
+			
+		function addToCart() {
+			if(confirm("도서를 장바구니에 추가하시겠습니까?")){
+				console.log("추가한다.");
+				addForm.submit();
+			}else{
+				console.log("추가하지 않는다.");
+				addForm.reset();
+			}
+		}
+	</script>
 </body>
 </html>

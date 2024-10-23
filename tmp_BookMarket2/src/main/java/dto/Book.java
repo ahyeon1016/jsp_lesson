@@ -17,6 +17,7 @@ public class Book implements Serializable{
 	private String releaseDate;
 	private String condition;
 	private String filename;
+	private int quantity; // 장바구니에 담은 개수
 	
 	public String getFilename() {
 		return filename;
@@ -114,6 +115,14 @@ public class Book implements Serializable{
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	
 	

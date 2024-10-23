@@ -53,7 +53,6 @@ public class LogFilter implements Filter {
 			currentPath = req.getRequestURI();
 			queryString = req.getQueryString();
 			
-			System.out.println("currentPath : "+currentPath+"/queryString : "+queryString);
 			 
 			queryString = queryString==null? "" : ""+queryString;
 //			if(queryString==null){
@@ -61,7 +60,6 @@ public class LogFilter implements Filter {
 //			} else {
 //				queryString =""+queryString;
 //			}
-			System.out.println("currentPath : "+currentPath+"/queryString : "+queryString);
 
 		}
 		

@@ -40,7 +40,6 @@ public class LogFileFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
 			throws IOException, ServletException {
-		writer.println("아아");
 		writer.println(" 접속한 클라이언트 IP : "+req.getRemoteAddr());
 		long start = System.currentTimeMillis();
 		writer.println(" 접근한 URL 경로 : "+getURLPath(req));
@@ -49,7 +48,7 @@ public class LogFileFilter implements Filter {
 		
 		long end = System.currentTimeMillis();
 		writer.println(" 요청 처리 종류 시각 : "+getCurrentTime());
-		writer.println(" 요청 처리 소요 시간 : "+(end+start)+"ms ");
+		writer.println(" 요청 처리 소요 시간 : "+(end-start)+"ms ");
 		writer.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
 		
 	}
@@ -69,7 +68,6 @@ public class LogFileFilter implements Filter {
 			currentPath = req.getRequestURI();
 			queryString = req.getQueryString();
 			
-			System.out.println("currentPath : "+currentPath+"/queryString : "+queryString);
 			 
 			queryString = queryString==null? "" : ""+queryString;
 //			if(queryString==null){
@@ -77,7 +75,6 @@ public class LogFileFilter implements Filter {
 //			} else {
 //				queryString =""+queryString;
 //			}
-			System.out.println("currentPath : "+currentPath+"/queryString : "+queryString);
 
 		}
 		
