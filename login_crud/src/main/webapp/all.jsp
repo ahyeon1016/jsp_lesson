@@ -38,5 +38,6 @@
 		}
 	%>
 	</table>
+	<a href="/login_crud">홈으로</a>
 </body>
 </html>

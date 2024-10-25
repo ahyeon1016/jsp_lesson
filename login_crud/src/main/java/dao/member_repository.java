@@ -98,4 +98,15 @@ public class member_repository {
 	//Update
 	
 	//Delete
+	public void deleteUser(String id) {
+		try {
+			//Step 1. DB연결
+			Connection conn = DBconn();
+			//Step 2. Query 전송 및 실행
+			Statement stmt = conn.createStatement();
+			String sql = "delete from member where id='"+id+"'";
+			System.out.println(sql);
+			stmt.executeUpdate(sql);
+		} catch (Exception e) {}
+	}
 }
