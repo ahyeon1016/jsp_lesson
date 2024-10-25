@@ -14,6 +14,7 @@ public class delete extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//ÀüÃ³¸®
 		String id= req.getParameter("id");
 		System.out.println(id);
 		
