@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import dao.member_repository;
 import dto.member_dto;
@@ -11,34 +12,25 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/join")
-public class member_controller extends HttpServlet{
-// 목표 : CREAT 데이터를 데이터베이스에 입력하는 것이 목표다.
+@WebServlet("/readall")
+public class member_controller2 extends HttpServlet {
+// 목표 : READ 여러개의 dto를 읽어와서 뷰에 출력하는 것이 목표
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher ds = req.getRequestDispatcher("join.jsp");
+		System.out.println("readall get도착");
+		//전처리 : 파라미터 없음 생략
+		//모델이동
+		member_repository mr = member_repository.getInstance();
+		ArrayList<member_dto> arr = mr.getAllmember();
+		//뷰이동
+		req.setAttribute("list", arr);
+		RequestDispatcher ds = req.getRequestDispatcher("all.jsp");
 		ds.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 전처리
-		req.setCharacterEncoding("utf-8");
-		
-		String id = req.getParameter("id");
-		String pwd = req.getParameter("pwd");
-		int age = Integer.parseInt(req.getParameter("age"));
-		
-		member_dto dto = new member_dto();
-		dto.setId(id);
-		dto.setPwd(pwd);
-		dto.setAge(age);
-		
-		// 모델 이동
-		member_repository mr = member_repository.getInstance();
-		mr.member_create(dto);
-		
-		resp.sendRedirect("readall");
-	}
 
+	}
+	
 }

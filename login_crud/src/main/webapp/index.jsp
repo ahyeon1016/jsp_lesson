@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="join">회원가입</a>
+	<p><a href="join">회원가입</a>
+	<p><a href="readall">전체 회원 보기</a>
 </body>
 </html>
