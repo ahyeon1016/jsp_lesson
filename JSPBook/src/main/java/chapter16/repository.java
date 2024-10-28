@@ -3,8 +3,10 @@ package chapter16;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.mysql.cj.xdevapi.PreparableStatement;
 
@@ -87,9 +89,41 @@ public class repository {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}		
+	}
+	
+	public ArrayList<dto> getMember(){
+		System.out.println("getMember 함수 호출");
+		ArrayList<dto> arr = new ArrayList<dto>();
+		
+		Connection conn = dbconn();
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		try {
+			//select * from member 
+			String sql = "select * from member";	
+			System.out.println(sql);
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				String id = rs.getString("id");
+				String pwd = rs.getString("pwd");
+				String name = rs.getString("name");
+				
+				dto d1 = new dto();
+				d1.setId(id);
+				d1.setPwd(pwd);
+				d1.setName(name);
+				
+				arr.add(d1);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
-		
-				
+		return arr;
 	}
 }
