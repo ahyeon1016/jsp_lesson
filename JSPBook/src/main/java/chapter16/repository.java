@@ -188,4 +188,22 @@ public class repository {
 		}
 		
 	}
+	
+	public void deleteMember(String id){
+		System.out.println("deleteMember 함수 도착");
+		Connection conn = dbconn();
+		try {
+			//delete from member where id=?
+			String sql = "delete from member where id=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+			
+			pstmt.close();
+			conn.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

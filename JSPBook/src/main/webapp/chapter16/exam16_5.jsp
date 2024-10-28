@@ -12,7 +12,7 @@
 	<%
 		ArrayList<dto> arr = (ArrayList<dto>)request.getAttribute("arr");
 	%>
-	<table width="300" border="1">
+	<table width="800" border="1">
 		<tr>
 			<th>아이디</th>
 			<th>비밀번호</th>
@@ -27,6 +27,7 @@
 			<th><%=d1.getPwd() %></th>
 			<th><%=d1.getName() %></th>
 			<th><a href="16_7?id=<%=d1.getId()%>">수정</a></th>	
+			<th><a href="16_8?id=<%=d1.getId()%>">제거</a></th>
 		</tr>
 		<%}%>
 	</table>
