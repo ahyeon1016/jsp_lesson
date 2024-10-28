@@ -118,12 +118,74 @@ public class repository {
 				
 				arr.add(d1);
 			}
-			
+			rs.close();
+			pstmt.close();
+			conn.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		return arr;
+	}
+	
+	public dto getOnemember(String userid){
+		dto d1 = new dto();
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			String database = "jdbc:mysql://localhost:3306/JSPBook";
+			String id = "root";
+			String pwd = "1234";
+			Connection conn = DriverManager.getConnection(database, id, pwd);
+			
+			//select * from member where id=?
+			String sql = "select * from member where id=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userid);
+			ResultSet rs = pstmt.executeQuery();
+			System.out.println(rs);
+			
+			if(rs.next()) {
+				d1.setId(rs.getString("id"));
+				d1.setPwd(rs.getString("pwd"));
+				d1.setName(rs.getString("name"));
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return d1;
+	}
+	
+	
+	public void updateMember(dto d1){
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			String db = "jdbc:mysql://localhost:3306/JSPBook";
+			String id = "root";
+			String pwd = "1234";
+			Connection conn = DriverManager.getConnection(db, id, pwd);
+			
+			//update member set pwd=?, name=? where id=?
+			String sql = "update member set pwd=?, name=? where id=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, d1.getPwd());
+			pstmt.setString(2, d1.getName());
+			pstmt.setString(3, d1.getId());
+			pstmt.executeUpdate();
+			
+			pstmt.close();
+			conn.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }

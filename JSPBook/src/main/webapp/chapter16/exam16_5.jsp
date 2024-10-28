@@ -26,6 +26,7 @@
 			<th><%=d1.getId() %></th>
 			<th><%=d1.getPwd() %></th>
 			<th><%=d1.getName() %></th>
+			<th><a href="16_7?id=<%=d1.getId()%>">수정</a></th>	
 		</tr>
 		<%}%>
 	</table>
