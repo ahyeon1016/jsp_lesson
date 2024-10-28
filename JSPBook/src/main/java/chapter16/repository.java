@@ -47,8 +47,12 @@ public class repository {
 			String sql = "insert into member values('"+id+"', '"+pwd+"', '"+name+"')";
 			System.out.println(sql);
 			stmt.executeUpdate(sql);
+			System.out.println("Statememt 닫음");
+			stmt.close();
+			System.out.println("Connection 닫음");
+			conn.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

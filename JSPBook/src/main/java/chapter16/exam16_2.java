@@ -38,6 +38,9 @@ public class exam16_2 extends HttpServlet{
 		//모델이동
 		repository repo = repository.getInstance();
 		repo.createMember(d1);
+		
+		//뷰 이동
+		resp.sendRedirect("index.jsp");
 	}
 
 }
