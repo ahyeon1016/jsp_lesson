@@ -44,8 +44,8 @@
 		
 		<div class="row align-items-md-stretch">
 			<h2 class="alert alert-danger">주문해주셔서 감사합니다.</h2>
-			<p>주문은 <%=out.println(shipping_shippingDate) %>에 배송될 예정입니다.
-			<p>주문번호 : <%=out.println(shipping_cartId) %>
+			<p>주문은 <%out.println(shipping_shippingDate); %>에 배송될 예정입니다.
+			<p>주문번호 : <%out.println(shipping_cartId); %>
 		</div>
 		<div class="container">
 			<p><a href="products" class="btn btn-secondary"&laquo; 도서 목록></a>

@@ -28,7 +28,7 @@
 			<div class="row">
 				<table width="100%">
 					<tr>
-						<td align="left"><a href="#" class="btn btn-danger">삭제하기</a></td>	
+						<td align="left"><a href="deleteCart.jsp?id=<%=cartId%>" class="btn btn-danger">삭제하기</a></td>	
 						<td align="right"><a href="shippingInfo.jsp" class="btn btn-success">주문하기</a></td>	
 					</tr>
 				</table>
@@ -61,7 +61,7 @@
 						<td><%=book.getUnitPrice() %></td>
 						<td><%=book.getQuantity() %></td>
 						<td><%=total %></td>
-						<td><a href="deleteCart.jsp?id=<%=book.getBookId()%>">삭제</a></td>
+						<td><a href="deleteCart.jsp?id=<%=cartId%>">삭제</a></td>
 					</tr>
 					<%
 					}

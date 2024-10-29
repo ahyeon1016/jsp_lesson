@@ -45,15 +45,13 @@ public class member_repository {
 			String pwd = dto.getPwd();
 			int age = dto.getAge();
 			// "insert into member values('admin', '1234', 10)" : 워크밴치에서 잘 작동하는지 테스트 실행
-			// "insert into member valuse('userid', 'pwd', age)"
+			// "insert into member values('userid', 'pwd', age)"
 			//  분류
 			// "insert into member valuse('"+userid
 			//	userid + "','" + pwd
 			//  pwd + "'," + age+")" 
-			
 			String sql = "insert into member values('"+userid+"','"+pwd+"',"+age+")";
 			System.out.println(sql);
-
 			stmt.executeUpdate(sql);
 		} 
 		catch (Exception e) {System.out.println("데이터 베이스 연결 실패");

@@ -43,13 +43,13 @@
 				<div class="mb-3 row">
 					<label class="col-sm-2">우편 번호</label>
 					<div class="col-sm-3">
-						<input type=text" name="zipCode" class="form-control">
+						<input type="text" name="zipCode" class="form-control">
 					</div>				
 				</div>				
 				<div class="mb-3 row">
 					<label class="col-sm-2">주소</label>
 					<div class="col-sm-5">
-						<input type=text" name="addressName" class="form-control">
+						<input type="text" name="addressName" class="form-control">
 					</div>				
 				</div>									
 				<div class="mb-3 row">

@@ -9,6 +9,7 @@
 
 	String cartId=session.getId();
 	
+	
 	String shipping_cartId ="";
 	String shipping_name ="";
 	String shipping_shippingDate ="";
@@ -85,9 +86,11 @@
 						<th class="text-center">소계</th>
 					</tr>
 					<%
+						
 						int sum=0;
-						ArrayList<Book> cartList=(ArrayList<Book>) session.getAttribute("cartList");
+						ArrayList<Book> cartList= (ArrayList<Book>)session.getAttribute("cartlist");
 						if(cartList==null){
+							out.print(cartList);
 							cartList = new ArrayList<Book>();
 						}
 						for(int i=0; i< cartList.size(); i++){

@@ -11,6 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/book")
 public class book_controller extends HttpServlet{
@@ -23,8 +24,10 @@ public class book_controller extends HttpServlet{
 	    BookRepository br = BookRepository.getInstance();
 	    ArrayList<Book> arr = br.getAllBooks();
 	    
+	    HttpSession session = req.getSession(true);
+	    
 		//¿Ãµø
-	    req.setAttribute("arry", arr);
+	    session.setAttribute("arry", arr);
 		RequestDispatcher ds = req.getRequestDispatcher("book.jsp");
 		ds.forward(req, resp);
 	}	
