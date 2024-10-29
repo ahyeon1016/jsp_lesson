@@ -23,11 +23,14 @@ public class book_controller extends HttpServlet{
 		//¸ðµ¨
 	    BookRepository br = BookRepository.getInstance();
 	    ArrayList<Book> arr = br.getAllBooks();
-	    
+
+		ArrayList<Book> readList = br.readBook();
+	   
 	    HttpSession session = req.getSession(true);
 	    
 		//ÀÌµ¿
 	    session.setAttribute("arry", arr);
+	    session.setAttribute("rs", readList);
 		RequestDispatcher ds = req.getRequestDispatcher("book.jsp");
 		ds.forward(req, resp);
 	}	

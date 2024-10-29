@@ -37,12 +37,20 @@ public class addCart extends HttpServlet{
 		
 		BookRepository dao = BookRepository.getInstance();
 		
+		
 		Book book = dao.getBookById(id);
-		if(book==null) {
+		ArrayList<Book> book1 = dao.readBook();
+		if(book==null && book1 == null) {
 			System.out.println("book = null");
 			resp.sendRedirect("exceptionNoBookId.jsp");
 		}
 		
+		Book oneBook = null;
+		if(book==null) {
+			oneBook = dao.readOneBook(id);
+			dao.addBook(oneBook);
+		}
+				
 		ArrayList<Book> goodsList = dao.getAllBooks();
 		Book goods = new Book();
 		for(int i=0; i<goodsList.size(); i++) {

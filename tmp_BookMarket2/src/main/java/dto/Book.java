@@ -9,7 +9,7 @@ public class Book implements Serializable{
 	private String bookId;
 	private String name;
 	private int unitPrice;
-	private String auther;
+	private String author;
 	private String description;
 	private String publisher;
 	private String category;
@@ -61,12 +61,12 @@ public class Book implements Serializable{
 		this.unitPrice = unitPrice;
 	}
 
-	public String getAuther() {
-		return auther;
+	public String getAuthor() {
+		return author;
 	}
 
 	public void setAuther(String auther) {
-		this.auther = auther;
+		this.author = auther;
 	}
 
 	public String getDescription() {

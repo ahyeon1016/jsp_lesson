@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import dao.BookRepository;
@@ -22,12 +23,15 @@ public class product_controller extends HttpServlet{
 		System.out.println("/product 매핑됨");
 		
 		//전처리
-
 		
 		//모델
 		ArrayList<Book> arr = BookRepository.getAllBooks();
 		
+		BookRepository br = BookRepository.getInstance();
+		ArrayList<Book> readList = br.readBook();
+		
 		//이동
+		req.setAttribute("rs", readList);
 		// 데이터 보낼 때      키     값
 		req.setAttribute("arry", arr);
 		RequestDispatcher ds = req.getRequestDispatcher("books.jsp");

@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="dto.Book" %>
+<%@ page import="java.sql.ResultSet" %>
+<%
+	Book book = (Book) request.getAttribute("book");
+%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -26,60 +32,60 @@
 				<a href="?language=ko">Korean</a>|<a href="?language=en">English</a>
 				<a href="logout.jsp" class="btn btn-sm btn-success pull right">logout</a>
 			</div>
-			<form action="addBook" method="post" enctype="multipart/form-data" class="form-horizontal" name="addBook">
+			<form action="update" method="post" enctype="multipart/form-data" class="form-horizontal" name="addBook">
 				<div class="mb-3 row">
 					<label class="col-sm-2"><fmt:message key="bookId"/></label>
 					<div class="col-sm-3">
-						<input type="text" name="bookId" class="form-control" id="bookId">
+						<input type="text" name="bookId" class="form-control" id="bookId" value="<%=book.getBookId() %>">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2"><fmt:message key="name"/></label>
 					<div class="col-sm-3">
-						<input type="text" name="name" class="form-control" id="name">
+						<input type="text" name="name" class="form-control" id="name" value="<%=book.getName() %>">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2"><fmt:message key="unitPrice"/></label>
 					<div class="col-sm-3">
-						<input type="text" name="unitPrice" class="form-control" id="unitPrice">
+						<input type="text" name="unitPrice" class="form-control" id="unitPrice" value="<%=book.getUnitPrice() %>">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2"><fmt:message key="author"/></label>
 					<div class="col-sm-3">
-						<input type="text" name="author" class="form-control" id="author">
+						<input type="text" name="author" class="form-control" id="author" value="<%=book.getAuthor() %>">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2"><fmt:message key="publisher"/></label>
 					<div class="col-sm-3">
-						<input type="text" name="publisher" class="form-control" id="publisher">
+						<input type="text" name="publisher" class="form-control" id="publisher" value="<%=book.getPublisher() %>">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2"><fmt:message key="releaseDate"/></label>
 					<div class="col-sm-3">
-						<input type="text" name="releaseDate" class="form-control" id="releaseDate">
+						<input type="text" name="releaseDate" class="form-control" id="releaseDate" value="<%=book.getReleaseDate() %>">
 					</div>
 				</div>
 				
 				<div class="mb-3 row">
 					<label class="col-sm-2"><fmt:message key="description"/></label>
 					<div class="col-sm-5">
-						<textarea name="description" rows="2" cols="50" class="form-control" placeholder="30자 이상 적어주세요" id="description"></textarea>
+						<textarea name="description" rows="2" cols="50" class="form-control" id="description"><%=book.getDescription()%></textarea>
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2"><fmt:message key="category"/></label>
 					<div class="col-sm-3">
-						<input type="text" name="category" class="form-control" id="category">
+						<input type="text" name="category" class="form-control" id="category" value="<%=book.getCategory() %>">
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2"><fmt:message key="unitInStock"/></label>
 					<div class="col-sm-3">
-						<input type="text" name="unitInStock" class="form-control" id="unitInStock">
+						<input type="text" name="unitInStock" class="form-control" id="unitInStock" value="<%=book.getUnitsInStock() %>">
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -93,7 +99,7 @@
 				<div class="mb-3 row">
 					<label class="col-sm-2"><fmt:message key="bookFile"/></label>
 					<div class="col-sm-3">
-						<input type="file" name="bookFile" class="form-control">
+						<input type="file" name="bookFile" class="form-control" value="<%=book.getFilename() %>">
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -166,7 +172,7 @@
 					return false;
 				}
 				console.log("unitInStock 통과");
-				alert("책을 등록합니다");
+				alert("책을 수정 합니다");
 				addBook.submit();
 			}
 		</script>

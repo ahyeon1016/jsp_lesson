@@ -14,21 +14,30 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/addBook")
-public class addBook extends HttpServlet {
+@WebServlet("/update")
+public class update extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("addBook get ÎèÑÏ∞©");
+		System.out.println("update get µµ¬¯");
+		//¿¸√≥∏Æ
+		String id = req.getParameter("id");
+		System.out.println(id);
 		
-		RequestDispatcher ds = req.getRequestDispatcher("addBook.jsp");
+		//∏µ® ¿Ãµø
+		BookRepository rs = BookRepository.getInstance();
+		Book book = rs.readOneBook(id);
+		
+		//∫‰ ¿Ãµø
+		req.setAttribute("book", book);
+		RequestDispatcher ds = req.getRequestDispatcher("editBook.jsp");	
 		ds.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("addBook post ÎèÑÏ∞©");
-		//Ï†ÑÏ≤òÎ¶¨
+		System.out.println("update post µµ¬¯");
+		
 		String save = req.getServletContext().getRealPath("resources/img");
 		MultipartRequest multi = new MultipartRequest(req, save, 5*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 		
@@ -43,8 +52,6 @@ public class addBook extends HttpServlet {
 		String unitInStock = multi.getParameter("unitInStock");
 		String condition = multi.getParameter("condition");
 		String file = multi.getFilesystemName("bookFile");
-		
-		System.out.println(file);
 		
 		Integer price;
 		
@@ -62,8 +69,6 @@ public class addBook extends HttpServlet {
 			stock = Long.valueOf(unitInStock);
 		}
 		
-		//BookRepository dao = BookRepository.getInstance();
-		
 		Book newBook = new Book();
 		
 		newBook.setBookId(bookId);
@@ -78,13 +83,10 @@ public class addBook extends HttpServlet {
 		newBook.setCondition(condition);
 		newBook.setFilename(file);
 		
-		//dao.addBook(newBook);
-		//Î™®Îç∏Ïù¥Îèô
-		System.out.println("Ï±Ö ÏÉùÏÑ±");
 		BookRepository br = BookRepository.getInstance();
-		br.createBook(newBook);
-		//Î∑∞Ïù¥Îèô
-		resp.sendRedirect("products");
+		br.updateBook(newBook);
+		
+		System.out.println("»Æ¿Œ");
 	}
-	
+
 }

@@ -48,11 +48,10 @@ function add(){
 	console.log("unitPrice 통과");
 	
 	//상세정보 체크
-	if(description.length<100){
-		alert("[상세설명]\n최소 100자 이상 입력하세요.");
+	if(description.length<30){
+		alert("[상세설명]\n최소 30자 이상 입력하세요.");
 		addBook.description.focus();
-		return false;
-	}
+		return false;	}
 	
 	//재고 수 체크
 	if(unitInStock.length==0||isNaN(unitInStock)){
