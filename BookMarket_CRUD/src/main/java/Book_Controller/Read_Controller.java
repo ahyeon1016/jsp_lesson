@@ -18,11 +18,18 @@ public class Read_Controller extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("READ get 도착");
+		System.out.println("1: 매핑되어 doGet 실행");
 		//전처리 x
 		
 		//모델이동
 		BookRepository br = BookRepository.getInstance();
+		if(br==null) {
+			System.out.println("2: BookRepository객체의 주소를 리턴받지 못함");
+		}
 		ArrayList<Book> arr = br.getAllBooks();
+		if(arr==null) {
+			System.out.println("3: 리스트 정보를 전달받지 못함");
+		}
 		//뷰이동
 		req.setAttribute("list", arr);
 		RequestDispatcher ds = req.getRequestDispatcher("books.jsp");

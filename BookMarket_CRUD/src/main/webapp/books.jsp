@@ -2,7 +2,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="dto.Book" %>
-
+<% System.out.println("4: Book.jsp 뷰로 이동함"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +16,9 @@
 		<%@include file="menu.jsp"%>
 		<%
 			ArrayList<Book> arr = (ArrayList<Book>) request.getAttribute("list");
+			if(arr==null){
+				System.out.println("5: 리스트 값을 전달 받지 못함");
+			}
 		%>
 		<div class="p-5 mb-4 bg-body-tertiary rounded-3">
 			<div class="container-fluid py-5">
@@ -28,6 +31,9 @@
 			<%
 				for(int i=0; i<arr.size(); i++){
 					Book bk = arr.get(i);
+					if(bk==null){
+						System.out.println("");
+					}
 			%>
 			<div class="col-md-4">
 				<div class="h-100 p-2">
