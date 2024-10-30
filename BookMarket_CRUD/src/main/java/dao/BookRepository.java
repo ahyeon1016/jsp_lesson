@@ -55,6 +55,7 @@ public class BookRepository {
 	}
 	
 	public Connection dbconn(){
+		System.out.println("[데이터 베이스 생성 함수 dbconn() 호출]");
 		Connection conn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -74,7 +75,7 @@ public class BookRepository {
 	
 	//전체 책 DTO를 ArrayList에 묶어서 전송
 	public ArrayList<Book> getAllBooks(){
-		System.out.println("3: Repository의 getAllBooks호출");
+		System.out.println("[3: Repository의 getAllBooks호출]");
 		Connection conn = dbconn();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -155,8 +156,9 @@ public class BookRepository {
 		return listOfBooks;
 	}
 	
+	//하나의 책 DTO를 삽입한다.
 	public void addBook(Book book) {
-		System.out.println("책을 등록하기 위해 BookRepository의 addBook() 호출");
+		System.out.println("[책을 등록하기 위해 BookRepository의 addBook() 호출]");
 		//데이터 베이스 연결
 		Connection conn = dbconn();
 		System.out.println("데이터 베이스 연결 완료");
@@ -207,9 +209,9 @@ public class BookRepository {
 		
 	}
 	
-	//하나의 책DTO를 리턴한다.
+	//하나의 책 DTO를 리턴한다.
 	public Book getBookById(String bookId) {
-		System.out.println("bookId에 해당하는 DTO를 가져오기 위해 getBookById 호출");
+		System.out.println("["+bookId+"에 해당하는 DTO를 가져오기 위해 getBookById 호출]");
 		Book bk = new Book();;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -286,6 +288,119 @@ public class BookRepository {
 		}
 		
 		return bk;
+	}
+	
+	//하나의 책 DTO를 삭제한다.
+	public void delBook(String bookId) {
+		System.out.println("[책DTO를 DB에서 제거하기 위해 delBook함수 호출]");
+		//데이터베이스 연결
+		Connection conn = dbconn();
+		PreparedStatement pstmt = null;
+		String sql = null;
+		System.out.println("데이터베이스 연결 완료");
+		try {
+			//sql전송
+			sql = "delete from book where bookId=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bookId);
+			System.out.println(pstmt);
+			pstmt.executeUpdate();
+			System.out.println(bookId+"가 포함된 DTO제거 완료");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if(pstmt!=null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(conn!=null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	//하나의 책 DTO를 수정한다.
+	public void updBook(Book bk){
+		System.out.println("["+bk.getBookId()+"가 포함된 DTO를 업데이트 하기 위한 updBook() 함수 호출]");
+		//DB연결
+		Connection conn = dbconn();
+		System.out.println("데이터베이스 연결 완료");
+		PreparedStatement pstmt=null;
+		try {
+			//SQL 전송
+			//update book set id=?,bookname=?,unitPrice=?, author=?, bookdescription=?, publisher=?, category=?, unitsInStock=?, releaseDate=?, bookcondition=?, filename=?
+			String sql = null;
+			String filename = bk.getFilename();
+			if(filename!=null) {
+				System.out.println("(if)file을 추가했을 때 파일을 포함한 모든 컬럼을 업데이트");
+				sql = "update book set bookname=?,unitPrice=?, author=?, bookdescription=?, publisher=?, category=?, unitsInStock=?, releaseDate=?, bookcondition=?, filename=? where bookId=?";
+				pstmt = conn.prepareStatement(sql);
+				System.out.println(bk.getBookId());
+				pstmt.setString(1, bk.getBookname());
+				pstmt.setInt(2, bk.getUnitPrice());
+				pstmt.setString(3, bk.getAuthor());
+				pstmt.setString(4, bk.getBookdescription());
+				pstmt.setString(5, bk.getPublisher());
+				pstmt.setString(6, bk.getCategory());
+				pstmt.setLong(7, bk.getUnitsInStock());
+				pstmt.setString(8, bk.getReleaseDate());
+				pstmt.setString(9, bk.getBookcondition());
+				pstmt.setString(10, bk.getFilename());
+				pstmt.setString(11, bk.getBookId());
+			} else {
+				System.out.println("(if)file을 추가하지 않았을 때 파일을 제외 모든 컬럼을 업데이트");
+				sql = "UPDATE book SET bookname=?, unitPrice=?, author=?, bookdescription=?, publisher=?, category=?, unitsInStock=?, releaseDate=?, bookcondition=? WHERE bookId=?";   
+				pstmt = conn.prepareStatement(sql);
+				System.out.println(bk.getBookId());
+				pstmt.setString(1, bk.getBookname());
+				pstmt.setInt(2, bk.getUnitPrice());
+				pstmt.setString(3, bk.getAuthor());
+				pstmt.setString(4, bk.getBookdescription());
+				pstmt.setString(5, bk.getPublisher());
+				pstmt.setString(6, bk.getCategory());
+				pstmt.setLong(7, bk.getUnitsInStock());
+				pstmt.setString(8, bk.getReleaseDate());
+				pstmt.setString(9, bk.getBookcondition());
+				pstmt.setString(10, bk.getBookId());
+			}
+			
+			System.out.println(pstmt);
+			pstmt.executeUpdate();
+			System.out.println("업데이트 완료");
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if(pstmt!=null) {
+				try {
+					System.out.println("pstmt닫음");
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(conn!=null) {
+				try {
+					System.out.println("conn닫음");
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 	
 	public ArrayList<Book> readBook(){

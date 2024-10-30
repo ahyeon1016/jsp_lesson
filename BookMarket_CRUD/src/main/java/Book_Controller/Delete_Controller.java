@@ -3,40 +3,33 @@ package Book_Controller;
 import java.io.IOException;
 
 import dao.BookRepository;
-import dto.Book;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/book")
-public class Read_one_Controller extends HttpServlet{
+@WebServlet("/deleteBook")
+public class Delete_Controller extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("[Read_one_Controller曖 doGet() 紫雜]");
+		System.out.println("[Delete_Controller doGet() 紫雜]");
 		//瞪籀葬
 		String bookId = req.getParameter("id");
-		System.out.println("id : "+bookId);
-		
+		System.out.println("bookId曖 高 : "+bookId);
 		//賅筐 檜翕
 		BookRepository br = BookRepository.getInstance();
-		Book dto = br.getBookById(bookId);
-		if(dto==null) {
-			System.out.println("dto縑 ResultSet曖 薑爾陛 氬晦雖 彊擠");
-		}
+		br.delBook(bookId);
 		//箔 檜翕
 		System.out.println("天天天天天天天天天天天天天天天天天天");
-		req.setAttribute("dto", dto);
-		RequestDispatcher ds = req.getRequestDispatcher("book.jsp");
-		ds.forward(req, resp);
+		resp.sendRedirect("products");
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-	}
+		System.out.println("[Delete_Controller doPost() 紫雜]");
 
+	}
+	
 }

@@ -14,25 +14,31 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/addBook")
-public class Create_Controller extends HttpServlet {
+@WebServlet("/updateBook")
+public class Update_Controller extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("[Create_Controller의 doGet() 도착]");
-		//전처리x
-		
-		//모델 이동x
-		
-		//뷰 이동
-		RequestDispatcher ds = req.getRequestDispatcher("addBook.jsp");
+		System.out.println("[Update_Controller doGet() 도착]");
+		//전처리
+		String bookId = req.getParameter("id");
+		System.out.println("bookId : "+bookId);
+		//모델이동
+		BookRepository br = BookRepository.getInstance();
+		Book dto = br.getBookById(bookId);
+		if(dto==null) {
+			System.out.println("dto에 값이 없음 Repository 확인해 볼것");
+		}
+		//뷰이동
+		req.setAttribute("dto", dto);
+		RequestDispatcher ds = req.getRequestDispatcher("updateBook.jsp");
 		ds.forward(req, resp);
-		
+	
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("[Create_Controller의 doPost() 도착]");
+		System.out.println("[[Update_Controller doPost() 도착]");
 		//전처리
 		req.setCharacterEncoding("UTF-8");
 		String realFolder = req.getServletContext().getRealPath("resources/img");
@@ -55,6 +61,7 @@ public class Create_Controller extends HttpServlet {
 		String unitPrice = multi.getParameter("unitPrice");
 		String unitsInStock = multi.getParameter("unitsInStock");
 		
+		//유효성 검사
 		Integer price;
 		
 		if(unitPrice.isEmpty()) {
@@ -94,12 +101,11 @@ public class Create_Controller extends HttpServlet {
 		
 		//모델 이동
 		BookRepository br = BookRepository.getInstance();
-		br.addBook(bk);
+		br.updBook(bk);
 		
+		//뷰이동
 		System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
-		//뷰 이동 : CUD는 보여줄 뷰어가 없음
 		resp.sendRedirect("products");
-		
 	}
 
 }

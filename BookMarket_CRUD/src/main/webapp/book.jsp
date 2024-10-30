@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "dto.Book" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page errorPage="exceptioNoBookId.jsp" %>
-<jsp:useBean id = "bookDAO" class = "dao.BookRepository" scope = "session"/>
-<%@ page import="dto.Book" %>
+
 <%
-	System.out.println("book.jsp 뷰 도착");
+	System.out.println("[book.jsp 뷰 도착]");
 	Book bk = (Book)request.getAttribute("dto");
 %>
 <!DOCTYPE html>

@@ -12,33 +12,32 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/products")
-public class Read_Controller extends HttpServlet {
+@WebServlet("/editBook")
+public class Edit_Controller extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("[Read_Controller의 doGet 도착]");
-		System.out.println("1: 매핑되어 doGet 실행");
-		//전처리 x
-		
-		//모델이동
+		System.out.println("[Edit_Controller doGet 이동]");
+		//전처리
+		String edit = req.getParameter("edit");
+		System.out.println(edit);
+		//모델 이동
 		BookRepository br = BookRepository.getInstance();
-		if(br==null) {
-			System.out.println("2: BookRepository객체의 주소를 리턴받지 못함");
-		}
-		ArrayList<Book> arr = br.getAllBooks();
+		ArrayList<Book> arr  = br.getAllBooks();
 		if(arr==null) {
-			System.out.println("3: 리스트 정보를 전달받지 못함");
+			System.out.println("arr=null");
 		}
-		//뷰이동
+		//뷰 이동
+		System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
 		req.setAttribute("list", arr);
-		System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
-		RequestDispatcher ds = req.getRequestDispatcher("books.jsp");
+		req.setAttribute("edit", edit);
+		RequestDispatcher ds = req.getRequestDispatcher("editBook.jsp");
 		ds.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("[Edit_Controller doPost 이동]");
 
 	}
 

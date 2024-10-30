@@ -12,8 +12,8 @@
         <!-- C -->
         <a href="addBook" class="fs-4 text-decoration-none">상품 등록</a>/
         <!-- U -->
-        <a href="editBook" class="fs-4 text-decoration-none">상품 수정</a>/
+        <a href="editBook?edit=update" class="fs-4 text-decoration-none">상품 수정</a>/
         <!-- D -->
-        <a href="deleteBook" class="fs-4 text-decoration-none">상품 제거</a>/
+        <a href="editBook?edit=delete" class="fs-4 text-decoration-none">상품 제거</a>/
       </a>    
     </header>    
