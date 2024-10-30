@@ -2,7 +2,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="dto.Book" %>
-<% System.out.println("4: Book.jsp 뷰로 이동함"); %>
+<% System.out.println("4: Books.jsp 뷰로 이동함"); %>
 <!DOCTYPE html>
 <html>
 <head>

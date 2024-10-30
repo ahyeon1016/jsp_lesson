@@ -96,6 +96,7 @@ public class Create_Controller extends HttpServlet {
 		BookRepository br = BookRepository.getInstance();
 		br.addBook(bk);
 		
+		System.out.println("天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天");
 		//箔 檜翕 : CUD朝 爾罹還 箔橫陛 橈擠
 		resp.sendRedirect("products");
 		

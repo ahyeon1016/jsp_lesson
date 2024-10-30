@@ -100,7 +100,7 @@ public class BookRepository {
 				String bookcondition = rs.getString("bookcondition");
 				String filename = rs.getString("filename");
 				
-				System.out.println(bookId);
+				System.out.println("DTO의 bookId : "+bookId);
 				
 				Book bk = new Book();
 				
@@ -119,28 +119,44 @@ public class BookRepository {
 				listOfBooks.add(bk);
 			}
 			
-			if(rs!=null) {
-				System.out.println("rs닫음");
-				rs.close();
-			}
-			if(pstmt!=null) {
-				System.out.println("pstmt닫음");
-				pstmt.close();
-			}
-			if(conn!=null) {
-				System.out.println("Connection 닫음");
-				conn.close();
-			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if(rs!=null) {
+				System.out.println("rs닫음");
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(pstmt!=null) {
+				System.out.println("pstmt닫음");
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(conn!=null) {
+				System.out.println("Connection 닫음");
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 		
 		return listOfBooks;
 	}
 	
 	public void addBook(Book book) {
-		System.out.println("BookRepository의 addBook() 호출");
+		System.out.println("책을 등록하기 위해 BookRepository의 addBook() 호출");
 		//데이터 베이스 연결
 		Connection conn = dbconn();
 		System.out.println("데이터 베이스 연결 완료");
@@ -167,7 +183,6 @@ public class BookRepository {
 			System.out.println("등록 성공");
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			//예외가 발생해도 close()는 반드시 실행되야함
@@ -176,12 +191,91 @@ public class BookRepository {
 				try {
 					pstmt.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 			if(conn!=null) {
 				System.out.println("conn닫기");
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		
+	}
+	
+	//하나의 책DTO를 리턴한다.
+	public Book getBookById(String bookId) {
+		System.out.println("bookId에 해당하는 DTO를 가져오기 위해 getBookById 호출");
+		Book bk = new Book();;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		//데이터베이스 연결
+		Connection conn = dbconn();
+		try {
+			//SQL전송
+			sql = "select * from book where bookId=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bookId);
+			rs = pstmt.executeQuery();
+			//ResultSet을 객체로 전환
+			if(rs.next()) {
+				String dbbookId = rs.getString("bookId");
+				String bookname = rs.getString("bookname");
+				int unitPrice = rs.getInt("unitPrice");
+				String author = rs.getString("author");
+				String bookdescription = rs.getString("bookdescription");
+				String publisher = rs.getString("publisher");
+				String category = rs.getString("category");
+				long unitsInStock = rs.getLong("unitsInStock");
+				String releaseDate = rs.getString("releaseDate");
+				String bookcondition = rs.getString("bookcondition");
+				String filename = rs.getString("filename");
+				
+				System.out.println(dbbookId);
+				
+				bk.setBookId(dbbookId);
+				bk.setBookname(bookname);
+				bk.setUnitPrice(unitPrice);
+				bk.setAuthor(author);
+				bk.setBookdescription(bookdescription);
+				bk.setPublisher(publisher);
+				bk.setCategory(category);
+				bk.setUnitsInStock(unitsInStock);
+				bk.setReleaseDate(releaseDate);
+				bk.setBookcondition(bookcondition);
+				bk.setFilename(filename);
+				
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {	
+			
+			if(rs!=null) {
+				System.out.println("rs닫음");
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(pstmt!=null) {
+				System.out.println("pstmt닫음");
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(conn!=null) {
+				System.out.println("Connection 닫음");
 				try {
 					conn.close();
 				} catch (SQLException e) {
@@ -191,22 +285,8 @@ public class BookRepository {
 			}
 		}
 		
-		
+		return bk;
 	}
-	/*
-	public Book getBookById(String bookId) {
-		Book bookById = null;
-		
-		for(int i=0; i<listOfBooks.size(); i++) {
-			Book book = listOfBooks.get(i);
-			if(book!=null && book.getBookId()!=null && book.getBookId().equals(bookId)) {
-				bookById=book;
-				break;
-			}
-		}
-		return bookById;
-	}
-	*/
 	
 	public ArrayList<Book> readBook(){
 		ArrayList<Book> arr = new ArrayList<Book>();
