@@ -1,4 +1,3 @@
-USE BookMarketDB;
 
 create table member ( 
     id varchar(10) not null,

@@ -33,14 +33,16 @@
 			<li class="nav-item"><a class="nav-link" href="member_logout">로그아웃 </a></li>
 			<li class="nav-item"><a class="nav-link" href="member_update">회원 수정</a></li>
 		<%} %>
-		    <!-- R -->
-		    <li class="nav-item"><a href="products" class="fs-4 text-decoration-none">상품 목록</a>/</li>
-			<!-- C -->
-			<li class="nav-item"><a href="addBook" class="fs-4 text-decoration-none">상품 등록</a>/</li>
-			<!-- U -->
-			<li class="nav-item"><a href="editBook?edit=update" class="fs-4 text-decoration-none">상품 수정</a>/</li>
-			<!-- D -->
-			<li class="nav-item"><a href="editBook?edit=delete" class="fs-4 text-decoration-none">상품 제거</a>/</li>
+		<!-- R -->
+		<li class="nav-item"><a href="products" class="fs-4 text-decoration-none">상품 목록</a>/</li>
+		<!-- C -->
+		<li class="nav-item"><a href="addBook" class="fs-4 text-decoration-none">상품 등록</a>/</li>
+		<!-- U -->
+		<li class="nav-item"><a href="editBook?edit=update" class="fs-4 text-decoration-none">상품 수정</a>/</li>
+		<!-- D -->
+		<li class="nav-item"><a href="editBook?edit=delete" class="fs-4 text-decoration-none">상품 제거</a>/</li>
+ 		<li class ="nav-item"><a href ="BoardListAction?pageNum=1" class = "nav-link"  >게시판</a></li>
+ 			
     </ul>
     
 
