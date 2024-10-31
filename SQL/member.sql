@@ -11,6 +11,8 @@ create table member (
     regist_day varchar(50),    
     primary key(id) 
 ) default CHARSET=utf8;
-
+SELECT * FROM board where regist_day;
+INSERT INTO board values(311111111,1,1,1,1,2024.12.23,1,1);
+DELETE FROM board;
 select * from member;
 drop table member;

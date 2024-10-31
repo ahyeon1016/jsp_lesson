@@ -105,13 +105,13 @@ public class BoardRepository {
 				bd.setName(rs.getString("name"));
 				bd.setSubject(rs.getString("subject"));
 				bd.setContent(rs.getString("content"));
-				bd.setRegist_day(rs.getTimestamp("regist_day"));
+				//bd.setRegist_day(rs.getTimestamp("regist_day"));
 				bd.setHit(rs.getInt("hit"));
 				bd.setIp(rs.getString("ip"));
-				
-				arr.add(bd);
 				i++;
 				System.out.println(i+"»∏ ¥„¿Ω");
+				arr.add(bd);
+
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

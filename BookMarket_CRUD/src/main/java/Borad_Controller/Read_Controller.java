@@ -42,7 +42,13 @@ public class Read_Controller extends HttpServlet {
 		} else {
 			total_page = (total_record/Lemit)+1;
 		}
+		Board bd = arr.get(0);
 		
+		System.out.println("============");
+		System.out.println(pageNum);
+		System.out.println(total_record);
+		System.out.println(total_page);
+		System.out.println("============");
 		//뷰 이동
 		req.setAttribute("total_page", total_page); // 출력할 페이지의 갯수
 		req.setAttribute("total_record", total_record); // 전체 글의 갯수
