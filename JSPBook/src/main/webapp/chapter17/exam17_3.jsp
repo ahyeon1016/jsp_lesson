@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>구구단</h3>
-	<table>
+	<table border="1">
+		<th colspan="1">구구단</th>
 		<c:forEach var="i" begin="1" end="9">
 			<tr>
 				<c:forEach var="j" begin="1" end="9">

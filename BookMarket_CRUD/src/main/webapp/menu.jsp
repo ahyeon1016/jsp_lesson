@@ -1,19 +1,48 @@
- <%@ page contentType="text/html; charset=UTF-8" %>
- <header class="pb-3 mb-4 border-bottom">
-      <a href="welcome.jsp" class="d-flex align-items-center text-dark text-decoration-none">
-      <svg  width="32" height="32" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="dto.Member" %>
+<%	
+	String sessionId = null;
+	HttpSession session2 = null;
+	session2 = request.getSession(false);
+
+	if(session2!=null){
+		Member mb = (Member) session2.getAttribute("member");
+		if(mb!=null){
+			sessionId = mb.getName();	
+		}
+	}
+%>
+<header class="pb-3 mb-4 border-bottom">
+	<a href="welcome.jsp" class="d-flex align-items-center text-dark text-decoration-none">
+    	<svg  width="32" height="32" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
   			<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
   			<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
 		</svg>   
         <span class="fs-4">Home</span>
-        <br>
-        <!-- R -->
-        <a href="products" class="fs-4 text-decoration-none">상품 목록</a>/
-        <!-- C -->
-        <a href="addBook" class="fs-4 text-decoration-none">상품 등록</a>/
-        <!-- U -->
-        <a href="editBook?edit=update" class="fs-4 text-decoration-none">상품 수정</a>/
-        <!-- D -->
-        <a href="editBook?edit=delete" class="fs-4 text-decoration-none">상품 제거</a>/
-      </a>    
-    </header>    
+	</a> 
+    
+    <ul class="nav nav-pills">
+		<%
+			if(sessionId==null){
+		
+		%>
+			<li class="nav-item"><a class="nav-link" href="member_login">로그인 </a></li>
+			<li class="nav-item"><a class="nav-link" href="member_add">회원 가입</a></li>
+		<%} else{%>
+			<li style="padding-top: 7px;">[<%=sessionId%>님]</li>
+			<li class="nav-item"><a class="nav-link" href="member_logout">로그아웃 </a></li>
+			<li class="nav-item"><a class="nav-link" href="member_update">회원 수정</a></li>
+		<%} %>
+		    <!-- R -->
+		    <li class="nav-item"><a href="products" class="fs-4 text-decoration-none">상품 목록</a>/</li>
+			<!-- C -->
+			<li class="nav-item"><a href="addBook" class="fs-4 text-decoration-none">상품 등록</a>/</li>
+			<!-- U -->
+			<li class="nav-item"><a href="editBook?edit=update" class="fs-4 text-decoration-none">상품 수정</a>/</li>
+			<!-- D -->
+			<li class="nav-item"><a href="editBook?edit=delete" class="fs-4 text-decoration-none">상품 제거</a>/</li>
+    </ul>
+    
+
+     
+</header>    
