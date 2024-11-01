@@ -1,9 +1,16 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page session="false" %>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
+<%@ page import="dto.Member" %>
 <%
-	System.out.println("writeForm.jsp 도착");
-	String name = (String) request.getAttribute("name");
-	
+	System.out.println("writeFrom.jsp 도착");
+	HttpSession session = request.getSession(false);
+	if(session == null){
+		System.out.println("writeFrom.jsp : 세션 없음");
+	}
+	Member mb = (Member) session.getAttribute("member");
+	String name = mb.getName();
 %>
 <html>
 <head>

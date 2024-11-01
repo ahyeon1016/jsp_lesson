@@ -1,6 +1,7 @@
 ﻿<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="dto.Book"%>
+<%@ page session="false" %>
 <%
 	System.out.println("[updateBook.jsp 뷰 도착]");
 %>

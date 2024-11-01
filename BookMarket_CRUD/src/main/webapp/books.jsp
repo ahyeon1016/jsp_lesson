@@ -2,6 +2,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="dto.Book" %>
+<%@ page session="false" %>
 <% System.out.println("[4: Books.jsp 뷰로 이동함]"); %>
 <!DOCTYPE html>
 <html>

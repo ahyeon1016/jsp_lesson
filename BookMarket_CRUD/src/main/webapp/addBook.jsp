@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page session="false" %>
+
 <% System.out.println("[addBook.jsp 도착]"); %>
 <!DOCTYPE html>
 <html>
@@ -80,7 +82,7 @@
 				<div class="mb-3 row">
 					<label class="col-sm-2"><fmt:message key="unitInStock"/></label>
 					<div class="col-sm-3">
-						<input type="text" name="unitInStock" class="form-control" id="unitInStock">
+						<input type="text" name="unitsInStock" class="form-control" id="unitInStock">
 					</div>
 				</div>
 				<div class="mb-3 row">

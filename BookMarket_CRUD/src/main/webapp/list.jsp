@@ -91,7 +91,7 @@
 				<%
 				 for(int i=1; i<=total_page; i++){
 				%>
-					<a href="BoardListAction?pageNum=${i}">
+					<a href="BoardListAction?pageNum=<%=i%>">
 						<%if(pageNum==i){%>
 							<font color='4C5317'><b> <%=i %></b></font>
 						<%} else{%>

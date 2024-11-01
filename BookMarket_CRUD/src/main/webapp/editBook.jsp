@@ -2,6 +2,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="dto.Book" %>
+<%@ page session="false" %>
 <% System.out.println("[editBook.jsp 뷰로 이동함]"); %>
 <!DOCTYPE html>
 <html>
@@ -59,7 +60,7 @@
 							} else if(edit.equals("delete")) {
 					    %>
 					    <a href= "#" onclick="deleteConfirm('<%=bk.getBookId()%>')" class="btn btn-danger" role="button">삭제(JS) &raquo;</a>
-					    <a href= "delete?id=<%=bk.getBookId()%>"  class="btn btn-danger" role="button">삭제(바로) &raquo;</a>
+					    <a href= "deleteBook?id=<%=bk.getBookId()%>"  class="btn btn-danger" role="button">삭제(바로) &raquo;</a>
 					    <%
 							}
 					    %>

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8"%>
+<%@ page session="false" %>
 <html>
 <head>
 <link rel="stylesheet" href="/BookMarket_CRUD/resources/css/bootstrap.min.css" />

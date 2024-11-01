@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="dto.Member" %>
+<%@ page session="false" %>
 <html>
 <head>
 <link rel="stylesheet" href="/BookMarket_CRUD/resources/css/bootstrap.min.css" />
@@ -33,6 +34,7 @@
 
 	<div class="row align-items-md-stretch   text-center">
 		<%
+			HttpSession session = null;
 			if (msg != null) {
 				if (msg.equals("0"))
 					out.println(" <h2 class='alert alert-danger'>회원정보가 수정되었습니다.</h2>");

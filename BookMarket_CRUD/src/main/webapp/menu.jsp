@@ -1,12 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="dto.Member" %>
+<%@ page session="false" %>
 <%	
 	String sessionId = null;
-	HttpSession session2 = null;
-	session2 = request.getSession(false);
+	HttpSession session = null;
+	session = request.getSession(false);
 
-	if(session2!=null){
-		Member mb = (Member) session2.getAttribute("member");
+	if(session!=null){
+		Member mb = (Member) session.getAttribute("member");
 		if(mb!=null){
 			sessionId = mb.getName();	
 		}
