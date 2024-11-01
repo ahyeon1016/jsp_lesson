@@ -25,14 +25,18 @@ public class Read_Controller extends HttpServlet {
 		//전처리
 		//한 페이지에 출력할 글의 갯수를 제한함
 		int Lemit = 5;
-		int pageNum = Integer.parseInt(req.getParameter("pageNum"));
+		String page = req.getParameter("pageNum");
+		int pageNum = 1;
+		if(page!=null) {
+			pageNum = Integer.parseInt(req.getParameter("pageNum"));			
+		}
 		//모델 이동
 		BoardRepository br = BoardRepository.getBr();
 		ArrayList<Board> arr = br.getAllBoard();
-		if(arr==null) {
+		if(arr.isEmpty()) {
 			System.out.println("!!!!!!!!!!!!!!!!!!!!!");
 			System.out.println("arr에 값이 없음");
-			resp.sendRedirect("welcome.jsp");
+			System.out.println("!!!!!!!!!!!!!!!!!!!!!");
 		}
 		
 		int total_record = br.getTotalCount();
@@ -42,7 +46,6 @@ public class Read_Controller extends HttpServlet {
 		} else {
 			total_page = (total_record/Lemit)+1;
 		}
-		Board bd = arr.get(0);
 		
 		System.out.println("============");
 		System.out.println(pageNum);

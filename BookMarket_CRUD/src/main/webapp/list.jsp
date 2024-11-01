@@ -5,6 +5,7 @@
 <%@ page import="dto.Member"%>
 <%@ page session="false" %>
 <%
+	System.out.println("list.jsp 도착");
 	int total_record = ((Integer) request.getAttribute("total_record")).intValue();
 	int total_page = ((Integer) request.getAttribute("total_page")).intValue();
 	int pageNum = ((Integer) request.getAttribute("pageNum")).intValue();

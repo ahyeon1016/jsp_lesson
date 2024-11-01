@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dto.Board;
@@ -75,8 +74,48 @@ public class BoardRepository {
 	}
 	
 	//Create
-	public void create(){
+	public void create(Board bd){
+		System.out.println("게시판에 글을 추가하기 위해 create() 호출");
+		//DB연결
+		Connection conn = dbconn();
+		//SQL전송
+		System.out.println("SQL 전송 시도");
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			//INSERT INTO board(id, name, subject, content, regist_day, hit, ip) VALUES(?,?,?,?,?,?,?);
+			String sql = "INSERT INTO board(id, name, subject, content, regist_day, hit, ip) VALUES(?,?,?,?,?,?,?)"; 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bd.getId());
+			pstmt.setString(2, bd.getName());
+			pstmt.setString(3, bd.getSubject());
+			pstmt.setString(4, bd.getContent());
+			pstmt.setTimestamp(5, bd.getRegist_day());
+			pstmt.setInt(6, bd.getHit());
+			pstmt.setString(7, bd.getIp());
+			System.out.println(pstmt);
+			
+			pstmt.executeUpdate();
+			System.out.println("SQL 전송 성공");
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				System.out.println("create()함수에서 사용한 객체 닫는중");
+				if(pstmt!=null) {pstmt.close();}
+				if(conn!=null) {conn.close();}
+				System.out.println("create()함수에서 사용한 객체 닫기 완료");
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
 		
+				
+		//ResultSet 필요없음.
+	
 	}
 	
 	//ReadAll
@@ -93,25 +132,23 @@ public class BoardRepository {
 			System.out.println("SQL 전송 시도");
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
+			System.out.println(rs);
 			System.out.println("SQL 전송 성공");
 			//ResultSet
 			System.out.println("ArrayList에 담기");
-			int i=0;
+
 			while(rs.next()) {
-				
+				System.out.println("while");
 				Board bd = new Board();
 				bd.setNum(rs.getInt("num"));
 				bd.setId(rs.getString("id"));
 				bd.setName(rs.getString("name"));
 				bd.setSubject(rs.getString("subject"));
 				bd.setContent(rs.getString("content"));
-				//bd.setRegist_day(rs.getTimestamp("regist_day"));
+				bd.setRegist_day(rs.getTimestamp("regist_day"));
 				bd.setHit(rs.getInt("hit"));
 				bd.setIp(rs.getString("ip"));
-				i++;
-				System.out.println(i+"회 담음");
 				arr.add(bd);
-
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
