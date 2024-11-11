@@ -9,9 +9,7 @@ CREATE TABLE board (
        ip varchar(20),
        PRIMARY KEY (num)
 )default CHARSET=utf8;
-INSERT INTO board(id, name, subject, content, regist_day, hit, ip) VALUES('15','15','15','15','2025-12-1','15','15');
-delete from board where id='15';
+
 select * from board;
 desc board;
 drop table board;
-SELECT * FROM board;
